@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
 
-export const plus= () => {
+export const plus = () => {
   return (
-    <div>plus-worldwar</div>
-  )
-}
+    <div>
+      <div>plus-worldwar</div>
+      <div>plus-worldwar2</div>
+    </div>
+  );
+};
