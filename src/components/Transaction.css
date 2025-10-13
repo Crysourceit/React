@@ -1,17 +1,23 @@
 
-.item-list{
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 40px;
+.transaction-list {
+  max-height: 400px;
+  overflow-y: auto;
 }
 
-.item-list li{
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-    padding: 15px;
-    color: #333;
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-    position: relative;
+.transaction-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.transaction-list::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+.transaction-list::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.transaction-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
 }
