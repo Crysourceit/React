@@ -1,0 +1,124 @@
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-card);
+  transform: scale(1.05);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--purple-light);
+  outline-offset: 2px;
+}
+
+.toggle-container {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.toggle-icons {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moon-icon,
+.sun-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.moon-icon {
+  color: var(--yellow);
+}
+
+.sun-icon {
+  color: var(--purple-light);
+}
+
+.visible {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.hidden {
+  opacity: 0;
+  transform: scale(0) rotate(-180deg);
+}
+
+/* Theme-specific styles */
+[data-theme="light"] .toggle-switch {
+  background: linear-gradient(145deg, var(--bg-card), var(--bg-primary));
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Prevent transition on certain elements for better performance */
+.theme-toggle * {
+  transition: inherit;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+  }
+
+  .toggle-container {
+    width: 28px;
+    height: 28px;
+  }
+
+  .moon-icon,
+  .sun-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

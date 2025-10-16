@@ -4,6 +4,8 @@ import Transaction from "./components/Transaction";
 import FormComponents from "./components/FormComponents";
 import DataContext from "./Data/DataContext";
 import ReportComponent from "./components/ReportComponent";
+import ThemeToggle from "./components/ThemeToggle";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 
 function Navigation() {
@@ -36,6 +38,11 @@ function Navigation() {
             </Link>
           </li>
         </ul>
+
+        {/* Theme Toggle */}
+        <div className="nav-theme-toggle">
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );
@@ -66,17 +73,18 @@ function App() {
   }, [items, reportIncome, reportExpense]);
 
   return (
-    <DataContext.Provider
-      value={{
-        income: reportIncome,
-        expense: reportExpense,
-      }}
-    >
-      <Router>
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-          <Navigation />
+    <ThemeProvider>
+      <DataContext.Provider
+        value={{
+          income: reportIncome,
+          expense: reportExpense,
+        }}
+      >
+        <Router>
+          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <Navigation />
 
-          <main style={{ flex: 1, padding: '2rem 0' }}>
+            <main style={{ flex: 1, padding: '2rem 0' }}>
             <div className="container slide-in">
               <Routes>
                 <Route path="/" element={<ReportComponent />}></Route>
@@ -130,8 +138,9 @@ function App() {
             </div>
           </footer>
         </div>
-      </Router>
-    </DataContext.Provider>
+        </Router>
+      </DataContext.Provider>
+    </ThemeProvider>
   );
 }
 

@@ -51,6 +51,58 @@
   --gradient-dark: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
+/* Light Theme Colors */
+[data-theme="light"] {
+  /* Color Hunt Palette (保持一致的紫色/黄色强调色) */
+  --black: #000000;
+  --purple-dark: #9929EA;
+  --purple-light: #CC66DA;
+  --yellow: #FAEB92;
+
+  /* Primary Colors */
+  --primary-color: var(--purple-dark);
+  --primary-hover: var(--purple-light);
+  --primary-light: #B854E5;
+  --accent-color: var(--yellow);
+
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-card: #ffffff;
+  --bg-overlay: rgba(255, 255, 255, 0.9);
+
+  /* Text Colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6c757d;
+  --text-accent: var(--purple-dark);
+
+  /* Border Colors */
+  --border-color: #e0e0e0;
+  --border-hover: #d0d0d0;
+
+  /* Status Colors (保持一致) */
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: var(--yellow);
+  --info: var(--purple-light);
+
+  /* Shadows (调整为浅色主题) */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px rgb(153 41 234 / 0.15);
+
+  /* Spacing & Sizing (保持一致) */
+  --radius: 1rem;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Gradients (调整为浅色主题) */
+  --gradient-primary: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-light) 100%);
+  --gradient-accent: linear-gradient(135deg, var(--yellow) 0%, #f5d842 100%);
+  --gradient-dark: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -329,6 +381,31 @@ button {
   transform: translateY(0px);
 }
 
+.nav-theme-toggle {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.nav-theme-toggle .theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-color);
+}
+
+.nav-theme-toggle .theme-toggle:hover {
+  border-color: var(--primary-light);
+  background: var(--bg-card);
+}
+
+[data-theme="light"] .nav-theme-toggle .theme-toggle {
+  border-color: var(--border-color);
+}
+
+[data-theme="light"] .nav-theme-toggle .theme-toggle:hover {
+  background: var(--bg-secondary);
+  border-color: var(--primary-light);
+}
+
 .nav-menu a.active::before {
   content: '';
   position: absolute;
@@ -542,6 +619,16 @@ button {
     height: 18px;
     margin: 0;
   }
+
+  .nav-theme-toggle {
+    margin-left: 1rem;
+  }
+
+  .nav-theme-toggle .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+}
 
   .card {
     padding: 1.5rem;
